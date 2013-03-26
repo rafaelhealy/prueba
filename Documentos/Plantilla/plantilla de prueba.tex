@@ -1,0 +1,63 @@
+\newcommand{\nombrearchivo}{Plantilla de prueba}
+\newcommand{\titulodocumento}{Plantilla de prueba en \LaTeX}
+\newcommand{\tipodocumento}{Tipo de documento}
+\newcommand{\fecha}{Marzo 2013}
+\input{../comun/Estilo}
+
+\usepackage[toc,page]{appendix}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{tabu}
+\usepackage{listings}
+
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+
+%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\input{../Comun/Portada}
+
+%%%%%%%%%%%%%%%%%% IDENTIFICACIÓN %%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\setcounter{page}{1}
+\pagenumbering{roman}
+%\pagestyle{}
+\section*{Identificación}
+
+%%%%%%%%%%%%%%% TABLAS DE CONTENIDO %%%%%%%%%%%%%%%
+\clearpage
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Páina}\par}
+\listoffigures
+\listoftables
+
+%%%%%%%%%%%%%%% CONTENIDO %%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Contenido}
+
+%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\bibliographystyle{plain}
+\bibliography{../Comun/Referencias}
+
+%%%%%%%%%%%%%%%%%%%%% APÉNDICES %%%%%%%%%%%%%%%%%%%%%
+\clearpage
+%\begin{appendices}
+\appendix
+\noappendicestocpagenum
+\addappheadtotoc
+\appendixpage
+\section{Primer apéndice}
+
+%\end{appendices}
+
+%%%%%%%%%%%%%%%%%%%%% VISTO BUENO %%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\input{../Comun/VoBo}
+
+\end{document}

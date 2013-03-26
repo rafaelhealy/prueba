@@ -1,0 +1,250 @@
+%%%%%%%%%%%%%%%% PAQUETES %%%%%%%%%%%%%%%%
+\documentclass[12pt, a4paper,twoside]{article} %Tamaño de letra, papel e impresión en 2 caras
+\def\spanishoptions{mexico-com}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %Para poder escribir acentos directiamente
+\usepackage{lmodern} %Mejor que el tipo de letra por defecto
+\usepackage[T1]{fontenc} %Para escribir algunos caracteres especiales y que copiar/pegar palabras con acento desde los pdfs funcione bien.
+\usepackage{textcomp} %Para usar otros caracteres especiales como: grados "°" (grados) que es diferente que "º" y euros "€".
+\usepackage[left=25mm, top=25mm, bottom=25mm, right=25mm]{geometry} %Márgenes de la hoja
+\usepackage[section]{placeins} %evita que floats de una sección parescan en otra
+\usepackage{pdflscape} %Para tener páginas horizontales dentro del documento
+\usepackage{appendix} %Apéncices
+\usepackage{hyperref} %Vínculos
+\usepackage{amsmath} %Fórmulas
+\usepackage{graphicx} %Imágenes
+\usepackage{subcaption} %Para colocar varias imágenes como una sola figura
+%\usepackage{tabu}
+%\usepackage{tabulary}
+\usepackage[table]{xcolor}
+\usepackage{listings} %Escribir código
+% \usepackage{gensymb} %Para escribir grados
+
+%%%%\def\input@path{{/path/to/folder}}
+
+\lstset{language=C} %Lenguage del código
+\graphicspath{{/Users/rafa/Dropbox/imagenes/}} %Ubicación de las imágenes del documento
+%\setlength{\parindent}{1cm} %Tamaño de la sangría
+\usepackage{setspace}
+	%\singlespacing
+	\onehalfspacing
+	%\doublespacing
+	%\setstretch{1.1}
+
+%Renoblrar a español
+%\renewcommand{\contentsname}{Contenido}
+%\renewcommand{\listfigurename}{Índice de figuras}
+%\renewcommand{\listtablename}{Índice de tablas}
+%\renewcommand\refname{Bibliografía}
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+
+\title{Documento para probar \LaTeX}
+\author{Rafael Healy Chacón}
+\date{Febrero 2013}
+\newpage
+\begin{document}
+\maketitle
+
+\clearpage
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Páina}\par}
+\listoffigures
+\listoftables
+
+\clearpage
+\section{Formatos de texto}
+\subsection{Ecuaciones}
+Notación matemática in-line: $(x+1)$ y $(x+3)$.
+
+Notación matemática separada: $$3x^{4e} - A_b$$ 
+
+Ecuaciones numeradas: 
+\begin{equation} 
+x=2y^3 
+\end{equation}
+
+Varias alineadas:
+\begin{align}
+u &= \arctan x & dv &= 1 \, dx
+\\ du &= \frac{1}{1 + x^2} dx & v &= x.
+\end{align}
+
+Con etiqueta para hacerle referencia en el texto
+\begin{equation} \label{eq:miec}
+5^2 - 5 = 20
+\end{equation}
+
+Referencia general a una ecuación: \ref{eq:miec}. 
+
+Referencia de ecuación: \eqref{eq:miec}.
+
+\subsection{Vínculos}
+Simple: \url{google.com}
+
+Con texto: \href{google.com}{Google}
+
+\section{Texto}
+Salto de linea con linea vacía. Empieza con sangría por defecto.\\
+Negritas: \textbf{negritas}\\
+Énfasis: \emph{énfasis}\\
+Itálicas: \textit{Es lo mismo que énfasis pero al usar énfasis \emph{dentro} de itálicas pone el texto normal para darle énfasis.}
+
+Una cita de ejemplo: \cite{texbook}
+
+\begin{center}
+centrado %comentario 
+\end{center}
+
+Para hacer que dos palabras espaciadas no se separen por salto de linea separarlas por un \textasciitilde{}. Por ejemplo al escribir:  Pag.~45.
+
+Código:
+\begin{lstlisting}
+# include <iostream>
+ 
+int main()
+{
+	std::cout << "Hello, world!\n";
+}
+\end{lstlisting}
+
+\section{Listas}
+\subsection{Lista numerada}
+\begin{enumerate}
+\item perro
+\item gato
+\item ratón
+	\begin{enumerate}
+	\item Jerry
+	\item Speedy
+	\end{enumerate}
+\end{enumerate}
+\subsection{Lista con viñetas}
+\begin{itemize}
+\item perro
+\item gato
+\item ratón
+	\begin{itemize}
+	\item Jerry
+	\item Speedy
+	\end{itemize}
+\end{itemize}
+
+\section{Imágenes}
+Incluir el paquetes \emph{graphicx}. Para crear figuras de subfiguras usar \emph{subcaption}. 
+
+Para imprimir el documento sin las imágenes y solo con cuadros vacíos colocar el parámetro \emph{draft} en \emph{documentclass}. 
+
+Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=0.5\textwidth]{oso}
+		\caption[Foto de un oso.]{Foto de un oso, el 					animal más grande del bosque.}
+		\label{fig:oso}
+\end{figure}
+
+Una referencia a la figura \ref{fig:oso}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{oso}
+		\caption{un oso}
+		\label{subfig:oso}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{tigre}
+		\caption{Un tigre}
+		\label{subfig:tigre}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{perro}
+		\caption{Un perro}
+		\label{subfig:perro}
+	\end{subfigure}
+	\caption{Fotos de animales}\label{fig:animals}
+\end{figure}
+
+\section{Tablas}
+\subsection{Tabla simple}
+\begin{tabular}{| l | c | r |}
+	\hline
+  1 & 2 & 3 \\ \hline
+  4 & 5 & 6 \\ \hline
+  7 & 8 & 9 \\ \hline
+\end{tabular}
+
+\subsection{Tabla con text wrap}
+\begin{center}
+    \begin{tabular}{ | l | l | l | p{6cm} |}
+    \hline
+    Day & Min Temp & Max Temp & Summary \\ \hline
+    Monday & 11C & 22C & Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an.\\ \hline
+    Tuesday & 9C & 19C & Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. \\ \hline
+    Wednesday & 10C & 21C & Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Tabla para hacerle referencia en texto y que aparezca en la TOC}
+\begin{table}[!ht]
+  \centering
+  \begin{tabular}{|l|}
+  		\hline
+  		la tabla \\
+  		\hline
+  \end{tabular}
+  \caption{Una tabla con epígrafe}
+  \label{tab:tablaEjemplo}
+\end{table}
+
+\subsection{Tabla desde OpenOffice}
+\begin{enumerate}
+\item Instalar Calc2LaTeX en OpenOffice.
+\item Hacer la tabla en una hoja de cálculo y seleccionarla.
+\item Ir a Herramientas -> Macros -> Ejecutar macro...
+\item Expandir Mis macros y ejecutar el macro Main de Calc2LaTeX.
+\item (Opcional) Añadir un botón del macro a una barra de herramientas.
+\begin{enumerate}
+\item Herramientas -> Personalizar... -> Barras de herramientas.
+\item Seleccionar la barra a la que se quiere agregar el botón y seleccionar Agregar...
+\item Buscar el macro Main en Macros de OpenOffice.org y seleccionar Agregar,
+\item (Opcional) Modificar el botón con el nombre Calc2LaTeX y poner un icono.
+\end{enumerate}
+
+\end{enumerate}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|c|c|}
+\hline
+\textbf{Pais} & \textbf{Capital} & \multicolumn{ 2}{c|}{\textbf{Moneda}} \\ \hline
+México & D.F. & \$ & Peso \\ \hline
+Alemania & Berlín & \multicolumn{ 1}{c|}{€} & \multicolumn{ 1}{c|}{Euro} \\ \cline{ 1- 2}
+Francia & Paris & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} \\ \hline
+\end{tabular}
+\end{center}
+\caption{Ejemplo de tabla hecha en OpenOffice}
+\label{tab:openoffice}
+\end{table}
+
+\section{Citas y bibliografía}
+\clearpage
+\bibliographystyle{plain}
+\bibliography{/Users/rafa/Documents/Prueba/referencias}
+
+\clearpage
+\appendix
+\addappheadtotoc
+\appendixpage
+\section{Primer apéndice}
+
+\end{document}
+
+

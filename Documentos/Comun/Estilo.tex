@@ -1,0 +1,34 @@
+\documentclass[12pt, a4paper,twoside]{article}
+\def\spanishoptions{mexico-com}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+%\usepackage{setspace}\onehalfspacing
+\usepackage[left=40mm, top=25mm, bottom=40mm, right=30mm, includefoot]{geometry} 
+\usepackage{fancyhdr}\setlength{\headheight}{3cm}
+\usepackage{graphicx} 
+
+\graphicspath{{/Users/rafa/Dropbox/imagenes/}} 
+
+\title{Plantilla de \LaTeX}
+\author{Rafael Healy Chacón}
+\date{Febrero 2013}
+
+\fancyhf{}
+\fancyhead[LE,RO]{Pág. \thepage}
+\fancyhead[LO,RE]{\includegraphics[height=2.2cm]{logoWiki} }
+
+\fancyfoot[CE,CO]{\nombrearchivo}
+
+
+
+%\lhead{\includegraphics[height=2.2cm]{logoWiki}}
+%\chead{\nombrearchivo}
+%\rhead[Pág. \thepage]{Pág. \thepage}
+
+%\lfoot[]{}
+%\cfoot[]{zcvcxv}
+%\rfoot[]{}
