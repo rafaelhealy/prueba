@@ -14,5 +14,5 @@
 \contentsline {subsection}{\numberline {5.3}Tabla para hacerle referencia en texto y que aparezca en la TOC}{6}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Tabla desde OpenOffice}{6}{subsection.5.4}
 \contentsline {section}{\numberline {6}Citas y bibliograf\IeC {\'\i }a}{7}{section.6}
-\contentsline {section}{Ap\IeC {\'e}ndices}{8}{section*.8}
-\contentsline {section}{\numberline {A}Primer ap\IeC {\'e}ndice}{8}{appendix.Alph1}
+\contentsline {section}{Ap\IeC {\'e}ndices}{9}{section*.9}
+\contentsline {section}{\numberline {A}Primer ap\IeC {\'e}ndice}{9}{appendix.Alph1}

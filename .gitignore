@@ -3,3 +3,7 @@
 *.out
 *.pdf
 *.gz
+*.lot
+*.lof
+*.loc
+*.bbl
