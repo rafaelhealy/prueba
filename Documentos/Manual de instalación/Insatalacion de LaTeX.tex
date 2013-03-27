@@ -1,0 +1,59 @@
+\documentclass[12pt, a4paper]{article}
+\def\spanishoptions{mexico-com}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} 
+\usepackage{hyperref} 
+
+\title{Instalar \LaTeX}
+\author{Rafael Healy Chacón}
+\date{Febrero 2013}
+\newpage
+\begin{document}
+\maketitle
+
+\section{Instalación}aS
+\subsection{OSX}
+\begin{enumerate}
+\item Instalar la distribución MacTex de \LaTeX para OSX disponible en: \url{http://tug.org/mactex/}.
+\item Instalar Texmaker para OSX disponible en: \url{http://www.xm1math.net/texmaker/download.html}.
+\end{enumerate}
+
+\subsection{Windows}
+\begin{enumerate}
+\item Instalar la distribución MiKTeX de \LaTeX para Windows disponible en: \url{http://miktex.org/download}.
+\item Instalar Texmaker para Windows disponible en: \url{http://www.xm1math.net/texmaker/download.html}.
+\end{enumerate}
+
+\section{Configurar Texmaker}
+
+El orden de compilación varia dependiendo del documento. Para documentos simples se puede usar PdfLaTeX + Pdf~view. Para documentos con citas y referencias PdfLaTeX + BibTex + PdfLaTeX + PdfLaTeX + Pdf~view.
+
+\subsection{OSX}
+Ir a texmaker -> Preferencias... -> Quick Build y seleccionar User e utilizar el wizard.
+
+\subsection{Windows}
+Ir a Opciones -> Configurar Texmaker -> Quick Build y seleccionar User e utilizar el wizard.
+
+\section{Git}
+
+Utilizar un sistema de control de versiones Git para sincronizar los archivos (La)tex. El sistema debe ignorar los archivos auxiliares con un .gitignore que incluya las siguientes extensiones:
+
+\begin{itemize}
+\item (La)TeX: *.log *.aux *.toc
+\item Listas: *.lof *.lot
+\item Índices: *.idx *.ind *.ilg
+\item Glosarios: *.glo *.gls *.glg
+\item BibTeX: *.bbl *.blg
+\item hyperref: *.out
+\item svn-multi: *.svn *.svt *.svx
+\item standalone: *.sta *.stp
+\item latexmk tool: *.fdb\_latexmk
+\item endfloat: *.fff
+\item gzip: *.gz
+\item Otros: *.run.xml
+\end{itemize}
+
+\end{document}

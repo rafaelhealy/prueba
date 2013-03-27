@@ -7,3 +7,7 @@
 *.lof
 *.loc
 *.bbl
+*.blg
+*.ps
+*.dvi
+*.idx

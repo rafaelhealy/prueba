@@ -1,21 +1,31 @@
 \documentclass[12pt, a4paper,twoside]{article}
 \def\spanishoptions{mexico-com}
 \usepackage[spanish]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
+\usepackage{microtype}
 
 %\usepackage{setspace}\onehalfspacing
 \usepackage[left=40mm, top=25mm, bottom=40mm, right=30mm, includefoot]{geometry} 
 \usepackage{fancyhdr}\setlength{\headheight}{3cm}
-\usepackage{graphicx} 
-
+\usepackage{graphicx}
 \graphicspath{{/Users/rafa/Dropbox/imagenes/}} 
 
-\title{Plantilla de \LaTeX}
-\author{Rafael Healy Chacón}
-\date{Febrero 2013}
+\usepackage[toc,page]{appendix}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{tabu}
+\usepackage{listings}
+
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+%\title{Plantilla de \LaTeX}
+%\author{Rafael Healy Chacón}
+%\date{Febrero 2013}
 
 \fancyhf{}
 \fancyhead[LE,RO]{Pág. \thepage}

@@ -6,8 +6,9 @@
 \usepackage{lmodern} %Mejor que el tipo de letra por defecto
 \usepackage[T1]{fontenc} %Para escribir algunos caracteres especiales y que copiar/pegar palabras con acento desde los pdfs funcione bien.
 \usepackage{textcomp} %Para usar otros caracteres especiales como: grados "°" (grados) que es diferente que "º" y euros "€".
+\usepackage{microtype} %Para expandir o comprimir el texto justificado y que se vea mejor
 \usepackage[left=25mm, top=25mm, bottom=25mm, right=25mm]{geometry} %Márgenes de la hoja
-\usepackage[section]{placeins} %evita que floats de una sección parescan en otra
+\usepackage[section]{placeins} %evita que floats de una sección aparescan en otra
 \usepackage{pdflscape} %Para tener páginas horizontales dentro del documento
 \usepackage{appendix} %Apéncices
 \usepackage{hyperref} %Vínculos
@@ -26,9 +27,9 @@
 \usepackage[space]{grffile} %Permite tener espacios en las rutas de archivos
 \graphicspath{{/Users/rafa/Dropbox/imagenes/}{C:/Users/Rafael Healy/Pictures/Imagenes/}} %Ubicación de las imágenes del documento
 %\setlength{\parindent}{1cm} %Tamaño de la sangría
-\usepackage{setspace}
+%\usepackage{setspace} %Intelineado
 	%\singlespacing
-	\onehalfspacing
+	%\onehalfspacing
 	%\doublespacing
 	%\setstretch{1.1}
 
@@ -47,15 +48,20 @@
 \newpage
 \begin{document}
 \maketitle
-
 \clearpage
+
 \tableofcontents
-\addtocontents{toc}{~\hfill\textbf{Páina}\par}
+\addtocontents{toc}{~\hfill\textbf{Página}\par}
 \listoffigures
 \listoftables
 
 \clearpage
-\section{Formatos de texto}
+\section{Texto}
+Salto de linea con linea vacía. Empieza con sangría por defecto.\\
+Negritas: \textbf{negritas}\\
+Énfasis: \emph{énfasis}\\
+Itálicas: \textit{Es lo mismo que énfasis pero al usar énfasis \emph{dentro} de itálicas pone el texto normal para darle énfasis.}
+
 \subsection{Ecuaciones}
 Notación matemática in-line: $(x+1)$ y $(x+3)$.
 
@@ -85,12 +91,6 @@ Referencia de ecuación: \eqref{eq:miec}.
 Simple: \url{google.com}
 
 Con texto: \href{google.com}{Google}
-
-\section{Texto}
-Salto de linea con linea vacía. Empieza con sangría por defecto.\\
-Negritas: \textbf{negritas}\\
-Énfasis: \emph{énfasis}\\
-Itálicas: \textit{Es lo mismo que énfasis pero al usar énfasis \emph{dentro} de itálicas pone el texto normal para darle énfasis.}
 
 Una cita de ejemplo: \cite{texbook}
 
@@ -234,6 +234,11 @@ Francia & Paris & \multicolumn{ 1}{c|}{} & \multicolumn{ 1}{c|}{} \\ \hline
 \caption{Ejemplo de tabla hecha en OpenOffice}
 \label{tab:openoffice}
 \end{table}
+
+\begin{landscape}
+\section{Página horizontal}
+Texto
+\end{landscape}
 
 \section{Citas y bibliografía}
 \clearpage
