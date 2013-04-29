@@ -13,27 +13,28 @@
 \contentsline {subsection}{\numberline {4.1}Documento b\IeC {\'a}sico}{4}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Caracteres especiales}{5}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Ecuaciones}{5}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}V\IeC {\'\i }nculos}{5}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.4}V\IeC {\'\i }nculos}{6}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}C\IeC {\'o}digo fuente}{6}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Listas}{6}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.6}Listas}{7}{subsection.4.6}
 \contentsline {subsection}{\numberline {4.7}Flotantes (floats)}{7}{subsection.4.7}
 \contentsline {subsubsection}{\numberline {4.7.1}Im\IeC {\'a}genes}{7}{subsubsection.4.7.1}
 \contentsline {subsubsection}{\numberline {4.7.2}Tablas}{8}{subsubsection.4.7.2}
-\contentsline {subsection}{\numberline {4.8}Espacios en blanco}{8}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.8}Espacios}{9}{subsection.4.8}
 \contentsline {section}{\numberline {5}Paquetes y comandos \IeC {\'u}tiles}{9}{section.5}
-\contentsline {subsection}{\numberline {5.1}Geometry}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.1}M\IeC {\'a}rgenes de hoja}{9}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Paquetes para escribir documentos en espa\IeC {\~n}ol}{9}{subsection.5.2}
 \contentsline {subsubsection}{\numberline {5.2.1}Babel}{9}{subsubsection.5.2.1}
 \contentsline {subsubsection}{\numberline {5.2.2}Acentos}{9}{subsubsection.5.2.2}
-\contentsline {subsection}{\numberline {5.3}placeins}{9}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}P\IeC {\'a}ginas horizontales}{9}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.3}Ubicaci\IeC {\'o}n de flotantes}{10}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}P\IeC {\'a}ginas horizontales}{10}{subsection.5.4}
 \contentsline {section}{\numberline {6}Secciones de los documentos}{10}{section.6}
 \contentsline {subsection}{\numberline {6.1}Tablas de contenido}{10}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Referencias y bibliograf\IeC {\'\i }a}{10}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Ap\IeC {\'e}ndices}{10}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.3}Ap\IeC {\'e}ndices}{11}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Documentos por m\IeC {\'o}dulos}{11}{subsection.6.4}
 \contentsline {section}{\numberline {7}Documentaci\IeC {\'o}n colaborativa}{12}{section.7}
 \contentsline {subsection}{\numberline {7.1}Repositorio Git}{12}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Estructura recomendada}{12}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.2}Estructura recomendada}{13}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Repositorio de im\IeC {\'a}genes}{13}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Repositorio de referencias}{13}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.4}Configurar Texmaker}{14}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Ejemplo}{14}{subsection.7.5}

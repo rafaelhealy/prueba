@@ -66,6 +66,7 @@ Para editar los archivos TeX se puede utilizar cualquier editor de texto y compi
 Esta guía resume algunas de las características más populares de LaTeX o relevantes para la documentación de los proyectos, pero no lo cubre por completo. Para una guía más completa se puede ver el wikilibro en: \url{http://en.wikibooks.org/wiki/LaTeX}.
 
 \section{Instalación de \LaTeX \ y Texmaker}
+
 \subsection{OSX}
 \begin{enumerate}
 \item Instalar la distribución MacTex de \LaTeX para OSX disponible en: \url{http://tug.org/mactex/}.
@@ -88,7 +89,7 @@ Los comandos distinguen entre mayúsculas y minúsculas y siguen el siguiente fo
 \lstinline!\nombredelcomando[opcion1,opcion2,...]{argumento1}{argumento2}...!
 \end{center}
 
-Empiezan con \textbackslash{} y luego el nombre del comando, pueden llevar argumentos o no. Los argumentos forzosos van entre \{~\} y los opcionales entre [~].
+Empiezan con barra invertida \"{}\textbackslash{}\"{} y luego el nombre del comando, pueden llevar argumentos o no. Los argumentos forzosos van entre llaves \"{}\{~\}\"{} y los opcionales entre corchetes \"{}[~]\"{}.
 
 \subsection{Entornos}
 
@@ -102,12 +103,14 @@ texto influenciado.
 
 \subsection{Grupos}
 
-Un grupo está definido por un par de \{~\}. El rango de los comandos que se coloquen en el grupo está limitado a él. Los comandos \textbackslash{}begingroup y \textbackslash{}endgroup son equivalentes. Ejemplo:
+Un grupo está definido por un par de llaves \"{}\{~\}\"{}. El rango de los comandos que se coloquen en el grupo está limitado a él. Los comandos \textbackslash{}begingroup y \textbackslash{}endgroup son equivalentes. 
+
+\noindent\textbf{Ejemplo:}
 
 \begin{lstlisting}
 {
 \bf Esto esta en negritas.
-Esto tambien.
+Esto igual.
 }
 Esto ya no.
 \end{lstlisting}
@@ -120,44 +123,69 @@ LaTeX no toma en cuenta más de un espacio blanco consecutivo entre palabras. Ej
 \"{}palabra1 \ \ \ \ \ palabra2\"{} = \"{}palabra1 palabra2\"{}
 \end{center}
 
-Dejar una linea vacía equivale a un salto de párrafo. Varias lineas vacias no se toman en cuenta.
+Dejar una linea vacía equivale a un salto de párrafo. Varias lineas vacías no se toman en cuenta.
 
 \subsection{Comentarios}
 
 Los comentarios se escriben con un \% para que LaTeX ignore el resto de la linea. Ejemplo:
 
 \begin{center}
-\"{}\%esto es un comentario\"{} = \"{}\"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \
+\"{}\% Comentario que no aparece en el pdf\"{} = \"{}\"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \
 \end{center}
 
 \section{Elementos básicos}
 
 \subsection{Documento básico}
 
+\noindent\textbf{Tex:}
+\begin{lstlisting}
+\documentclass[12pt]{article}
 
+% paquetes utilizados
+\usepackage{amsmath}
 
-\begin{table}[!htbp]
-\subsection{Caracteres especiales}
+%Empieza el documento
+\begin{document}
+Este es un documento de prueba de \LaTeX en el que 
+se muestra la calidad de la tipograf\'ia.
+  \begin{align}
+    E &= mc^2                              \\
+    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+  \end{align}
+\end{document}
+\end{lstlisting}
 \vspace{12pt}
 
-    \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    TeX & Resultado & TeX & Resultado \\ \hline
-    \textbackslash{}\# & \# &  &  \\ \hline
-    \textbackslash{}\$ & \$ &  &  \\ \hline
-    \textbackslash{} \% &  \% &  &  \\ \hline
-    \textbackslash{} \^{}\{\}  &  \^{}  &  &  \\ \hline
-    \textbackslash{}\&  & \& &  &  \\ \hline
-    \textbackslash{}\_ & \_ &  &  \\ \hline
-    \textbackslash{} \{ &  \{ &  &  \\ \hline
-    \textbackslash{}\}  &  \}  &  &  \\ \hline
-    \textbackslash{}\~{}\{\} & \~{} &  &  \\ \hline
-    \textbackslash{}textbackslash\{\} &  \textbackslash{} &  &  \\ \hline
+\noindent\textbf{Pdf:}\\
+
+Este es un documento de prueba de \LaTeX en el que 
+se muestra la calidad de la tipograf\'ia.
+  \begin{align}
+    E &= mc^2                              \\
+    m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+  \end{align}
+
+\subsection{Caracteres especiales}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Pdf} & \textbf{TeX} & \textbf{Pdf} & \textbf{TeX} \\ \hline
+\# & \textbackslash{}\# & \"{} & \textbackslash{}\"{}\{\} \\ \hline
+\$ & \textbackslash{}\$ &  &  \\ \hline
+ \% & \textbackslash{} \% &  &  \\ \hline
+ \^{}  & \textbackslash{} \^{}\{\}  &  &  \\ \hline
+\& & \textbackslash{}\&  &  &  \\ \hline
+\_ & \textbackslash{}\_ &  &  \\ \hline
+ \{ & \textbackslash{} \{ &  &  \\ \hline
+ \}  &  \textbackslash{}\}  &  &  \\ \hline
+\~{} & \textbackslash{}\~{}\{\} &  &  \\ \hline
+ \textbackslash{} &  \textbackslash{}textbackslash\{\} &  &  \\ \hline
 \end{tabular}
 \end{center}
 \caption{Como escribir caracteres especiales}
-\label{tab:caracteresespeciales}
+\label{}
 \end{table}
 \FloatBarrier
 
@@ -165,10 +193,10 @@ Los comentarios se escriben con un \% para que LaTeX ignore el resto de la linea
 
 Incluir el paquete \emph{amsmath} (\lstinline$\usepackage{amsmath}$).
 
-Para escribir alguna notación matemática en linea con el texto colocarla entre \$ \$. Ejemplo: 
+Para escribir alguna notación matemática en linea con el texto colocarla entre signos de pesos \$ \$. Ejemplo: 
 
 \begin{center}
-\"{}Texto \$(x+1)(x+3)\$ Texto.\"{} = \"{}Texto $(x+1)(x+3)$ Texto.\"{}
+\"{}Texto \$E=mc\^{}2\$ Texto.\"{} = \"{}Texto $E=mc^2$ Texto.\"{}
 \end{center}
 
 Para escribir ecuaciones numeradas y etiquetadas para hacerles referencia en el texto seguir el siguiente ejemplo:
@@ -195,7 +223,7 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 
 \subsection{Vínculos}
 
-se debe utilizar el paquete \emph{hyperref} (\lstinline$\usepackage{hyperref}$)
+Se puede utilizar el paquete \emph{hyperref} (\lstinline$\usepackage{hyperref}$)
 
 \textbf{Ejemplos:}
 
@@ -207,7 +235,7 @@ se debe utilizar el paquete \emph{hyperref} (\lstinline$\usepackage{hyperref}$)
 
 \subsection{Código fuente}
 
-Para colocar código fuente o texto que utilice muchos caracteres especiales fácilmente se puede utilizar el paquete \emph{listings}. El paquete soporta los lenguajes de programación más comunes. Para especificar el lenguaje utilizar el comando \lstinline$\lstset{language=lenguajedeseado}$ la documentación del paquete se encuentra en \url{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf}\\
+Para colocar código fuente o texto que utilice muchos caracteres especiales se puede utilizar el paquete \emph{listings}. El paquete soporta los lenguajes de programación más comunes. Para especificar el lenguaje utilizar el comando \lstinline$\lstset{language=lenguajedeseado}$ la documentación del paquete se encuentra en \url{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf}\\
 
 \noindent\textbf{Ejemplo:}
 
@@ -236,11 +264,11 @@ int main()
 \end{lstlisting}
 }
 
-Para código dentro del párrafo se puede utilizar el comando \lstinline!"\lstinline$el codigo$"!. Los signos de \$ se pueden sustituir por otro que no se encuentre en el código, e.g.~!
+Para código dentro del párrafo se puede utilizar el comando \lstinline!"\lstinline$el codigo$"!. Los signos de pesos \"{}\$\"{} se pueden sustituir por otro que no se encuentre en el código, e.g.~\"{}!\"{}.
 
 \subsection{Listas}
 
-Para crear listas se pueden utilizar los ambientes $enumerate$ y $itemize$ para crear listas enumeradas o con viñetas respectivamente.\\
+Para crear listas se pueden utilizar los ambientes \emph{enumerate} e \emph{itemize} para crear listas numeradas o con viñetas respectivamente.\\
 
 \noindent\textbf{Ejemplo:}
 
@@ -257,6 +285,7 @@ Para crear listas se pueden utilizar los ambientes $enumerate$ y $itemize$ para 
     \end{enumerate}
 \end{enumerate}
 \end{lstlisting}
+\vspace{12pt}
 
 \textbf{Pdf:}
 
@@ -332,13 +361,23 @@ Escribir y darle formato a tablas en LaTeX puede ser algo complicado. Se recomie
 \end{enumerate}
 \end{enumerate}
 
-\subsection{Espacios en blanco}
+\subsection{Espacios}
 
-Para hacer que dos palabras espaciadas no se separen (en un salto de linea) separarlas con un un \textasciitilde. Por ejemplo, para escribir \"{}Pag.~45\"{} escribir en el archivo tex \"{}Pag.\textasciitilde 45\"{}.
+Para hacer que dos palabras espaciadas no se separen en un salto de linea separarlas con un un \textasciitilde. Por ejemplo, para escribir \"{}Pag.~45\"{} escribir en el archivo tex \"{}Pag.\textasciitilde 45\"{}.
+
+Para dejar más espacio horizontal o verticalmente se pueden utilizar los comandos \lstinline$\vspace{espacio}$ o \lstinline$\hspace{espacio}$ el espacio se puede especificar en cm, mm, pt etc. e.g. 2cm, 15mm, 14pt.
+
+Para hacer que todo el documento o partes tengan interlineado diferente a 1 utilizar el paquete \emph{setspace}. 
+
+\noindent\textbf{Ejemplo:}
+\begin{lstlisting}
+\usepackage{setspace}
+\onehalfspacing
+\end{lstlisting}
 
 \section{Paquetes y comandos útiles}
 
-\subsection{Geometry}
+\subsection{Márgenes de hoja}
 
 Paquete para especificar los márgenes del documento. Documentación: \url{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/geometry/geometry.pdf}.\\
 
@@ -359,22 +398,22 @@ Re-nombra el título de elementos auto-generados (TOC, TOF, Bibliography, etc.) 
 
 \textbf{inputenc:} Normalmente para escribir letras acentuadas en LaTeX los editores deben escribir \lstinline$"\'a"$ para producir \"{}á\"{}. Al incluir este paquete con la opción utf8 se pueden escribir normalmente en el archivo TeX.
 
-\textbf{fontenc:} Si solo se utiliza el paquete anterior, al copiar y pegar el texto en los pdfs generados, las letras acentuadas no se pegan correctamente. Este paquete soluciona esto y ademas permite escribir algunos caracteres especiales directamente en el archivo TeX.\\
+\textbf{fontenc:} Si solo se utiliza el paquete anterior, al copiar y pegar el texto en los pdfs generados, las letras acentuadas no se copian correctamente. Este paquete soluciona esto y ademas permite escribir algunos caracteres especiales directamente en el archivo TeX.\\
 
 \begin{lstlisting}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \end{lstlisting}
 
-\subsection{placeins}
+\subsection{Ubicación de flotantes}
 
-Evita que los floats escritos en una sección aparescan en la siguiente. Lo que hace es re-definir el comando \textbackslash{}section para que incluya un \textbackslash{}FloatBarrier.\\
+El paquete \emph{placeins} evita que los floats escritos en una sección aparezcan en la siguiente. Lo que hace es re-definir el comando \textbackslash{}section para que incluya un \textbackslash{}FloatBarrier.\\
 
 \noindent\lstinline$\usepackage[section]{placeins}$
 
 \subsection{Páginas horizontales}
 
-\textbf{pdflscape:} Permite colocar páginas especificas de forma horizontal. Se puede especificar que se quiere rotar (contenido, encabezado y pie de página). Documentación: \url{ftp://ftp.ctan.org/tex-archive/macros/latex/contrib/oberdiek/pdflscape.pdf}.\\
+\textbf{pdflscape:} Permite colocar páginas específicas de forma horizontal. Se puede indicar que elementos se quieren rotar (contenido, encabezado y pie de página). Documentación: \url{ftp://ftp.ctan.org/tex-archive/macros/latex/contrib/oberdiek/pdflscape.pdf}.\\
 
 \noindent\lstinline$\usepackage{pdflscape}$
 
@@ -435,7 +474,7 @@ Si el documento tiene más de un apéndice posiblemente se desee ejecutar los si
 
 \subsection{Documentos por módulos}
 
-Se pueden crear documentos formados por varios archivos TeX. Esto puede ser útil en 2 sentidos, para separar (en capítulos o secciones) documentos muy largos, o para crear muchos documentos que contienen las mismas partes.
+Se pueden crear documentos formados por varios archivos TeX. Esto puede ser útil para separar (en capítulos o secciones) documentos muy largos, o para crear muchos documentos que contienen las mismas partes.
 
 Para añadir el contenido de un archivo TeX dentro de otro se usa el comando \lstinline$"\inlcude{ruta/nombredelarchivo}"$.
 
@@ -464,9 +503,9 @@ A continuación se presenta un ejemplo para crear una portada común para varios
 \documentclass[12pt, a4paper]{article}
 
 % Se definen los valores de los comandos personales
-\newcommand{\titulodocumento}{Plantilla de prueba en \LaTeX}
-\newcommand{\autor}{Rafael Healy}
-\newcommand{\fecha}{Marzo 2013}
+\newcommand{\titulodocumento}{\LaTeX}
+\newcommand{\autor}{Leslie Lamport}
+\newcommand{\fecha}{1980}
 
 \begin{document}
 
@@ -504,7 +543,7 @@ El sistema debe ignorar los archivos auxiliares con un .gitignore que incluya la
 
 \subsection{Estructura recomendada}
 
-Normalmente LaTeX no reconoce espacios en rutas y nombres de archivos por lo que se recomienda no usar o remplazarlos por guiones bajos (\"{}\_\"{}).
+Normalmente LaTeX no reconoce espacios en rutas y nombres de archivos por lo que se recomienda no usar o remplazarlos por guiones bajos (\"{}\_\"{}). Tampoco usar acentos o caracteres especiales.
 
 \noindent\textbf{Organización de las carpetas:}
 \begin{itemize}
@@ -527,8 +566,7 @@ Normalmente LaTeX no reconoce espacios en rutas y nombres de archivos por lo que
         \begin{itemize}
         \item Referencias
             \begin{itemize}
-            \item referencias1.bib
-            \item referencias2.bib
+            \item referencias.bib
             \end{itemize}
         \item Imagenes
             \begin{itemize}
@@ -549,8 +587,54 @@ Normalmente LaTeX no reconoce espacios en rutas y nombres de archivos por lo que
 
 \subsection{Repositorio de imágenes}
 
-Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con Git o algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.
+Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con Git o algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.\\
 
-\subsection{Repositorio de referencias}
+\noindent\textbf{Ejemplo:}
+
+\begin{lstlisting}
+\graphicspath{{../../Comun/Imagenes}
+              {C:/Users/usuario/Pictures/Imagenes/}}
+\end{lstlisting}
+
+\subsection{Configurar Texmaker}
+
+Configurar el editor para que intercambie los tabuladores por un número igual de espacios para todos los colaboradores.
+
+\subsection{Ejemplo}
+
+A continuación se muestra un ejemplo de como se podría ver el archivo TeX de un documento:
+
+\begin{lstlisting}
+
+%% PAQUETES Y ESTILO %%
+\input{../Comun/Estilo}
+\input{../Comun/Encabezado}
+\input{../Comun/Pie}
+
+%% PORTADA %%
+\newcommand{\titulodocumento}{Plantilla}
+\newcommand{\fecha}{Marzo 2013}
+\begin{document}
+\input{../Comun/Portada}
+
+%% TABLAS DE CONTENIDO %%
+\clearpage
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Pagina}\par}
+\listoffigures
+\listoftables
+
+%% CONTENIDO %%
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% El contenido del documento
+
+%% REFERENCIAS %%
+\clearpage
+\bibliographystyle{plain}
+\bibliography{../Comun/Referencias}
+\end{lstlisting}
 
 \end{document}
