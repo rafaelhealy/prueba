@@ -1,6 +1,5 @@
 \select@language {spanish}
 ~\hfill \textbf {P\IeC {\'a}ina}\par 
 \contentsline {section}{\numberline {1}Contenido}{1}{section.1}
-\contentsline {section}{Ap\IeC {\'e}ndices}{}{section*.5}
-\contentsline {section}{Ap\IeC {\'e}ndices}{}{section*.6}
+\contentsline {section}{Ap\IeC {\'e}ndices}{2}{section*.5}
 \contentsline {section}{\numberline {A}Primer ap\IeC {\'e}ndice}{2}{appendix.Alph1}

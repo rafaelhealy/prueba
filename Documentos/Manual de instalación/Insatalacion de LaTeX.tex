@@ -7,14 +7,14 @@
 \usepackage{textcomp} 
 \usepackage{hyperref} 
 
-\title{Instalar \LaTeX}
+\title{Instalación y configuración de \LaTeX}
 \author{Rafael Healy Chacón}
 \date{Febrero 2013}
 \newpage
 \begin{document}
 \maketitle
 
-\section{Instalación}aS
+\section{Instalación}
 \subsection{OSX}
 \begin{enumerate}
 \item Instalar la distribución MacTex de \LaTeX para OSX disponible en: \url{http://tug.org/mactex/}.
@@ -32,14 +32,16 @@
 El orden de compilación varia dependiendo del documento. Para documentos simples se puede usar PdfLaTeX + Pdf~view. Para documentos con citas y referencias PdfLaTeX + BibTex + PdfLaTeX + PdfLaTeX + Pdf~view.
 
 \subsection{OSX}
-Ir a texmaker -> Preferencias... -> Quick Build y seleccionar User e utilizar el wizard.
+En la barra de menú ir a texmaker -> Preferencias... -> Quick Build y seleccionar User e utilizar el wizard.
 
 \subsection{Windows}
 Ir a Opciones -> Configurar Texmaker -> Quick Build y seleccionar User e utilizar el wizard.
 
-\section{Git}
+\section{Configurar un control de versiones Git}
 
-Utilizar un sistema de control de versiones Git para sincronizar los archivos (La)tex. El sistema debe ignorar los archivos auxiliares con un .gitignore que incluya las siguientes extensiones:
+Se puede utilizar un sistema de control de versiones Git para sincronizar los archivos (La)tex para trabajar en la documentación de proyectos de manera colaborativa.
+
+El sistema debe ignorar los archivos auxiliares con un .gitignore que incluya las siguientes extensiones:
 
 \begin{itemize}
 \item (La)TeX: *.log *.aux *.toc

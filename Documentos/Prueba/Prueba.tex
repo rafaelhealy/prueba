@@ -98,7 +98,7 @@ Una cita de ejemplo: \cite{texbook}
 centrado %comentario 
 \end{center}
 
-Para hacer que dos palabras espaciadas no se separen por salto de linea separarlas por un \textasciitilde{}. Por ejemplo al escribir:  Pag.~45.
+Para hacer que dos palabras espaciadas no se separen por salto de linea separarlas por un \textasciitilde{}. Por ejemplo al escribir Pag.~45
 
 Código:
 \begin{lstlisting}
@@ -137,12 +137,12 @@ Incluir el paquetes \emph{graphicx}. Para crear figuras de subfiguras usar \emph
 
 Para imprimir el documento sin las imágenes y solo con cuadros vacíos colocar el parámetro \emph{draft} en \emph{documentclass}. 
 
-Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.
+Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con Git o algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.
 
 \begin{figure}[!ht]
 	\centering
 		\includegraphics[width=0.5\textwidth]{oso}
-		\caption[Foto de un oso.]{Foto de un oso, el 					animal más grande del bosque.}
+		\caption[Foto de un oso.]{Foto de un oso, el animal más grande del bosque.}
 		\label{fig:oso}
 \end{figure}
 
@@ -247,8 +247,9 @@ Texto
 
 \clearpage
 \appendix
-\addappheadtotoc
-\appendixpage
+\noappendicestocpagenum %evita que el título de apendices en la toc esté numerado
+\addappheadtotoc %título de apéndices en la toc
+\appendixpage %título apéndices en el documento
 \section{Primer apéndice}
 
 \end{document}

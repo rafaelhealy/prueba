@@ -1,0 +1,556 @@
+%%%%%%%%%%%%%%%% PAQUETES %%%%%%%%%%%%%%%%
+\documentclass[12pt, a4paper,twoside]{article} %Tamaño de letra, papel e impresión en 2 caras
+\def\spanishoptions{mexico-com}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %Para poder escribir acentos directiamente
+\usepackage{lmodern} %Mejor que el tipo de letra por defecto
+\usepackage[T1]{fontenc} %Para escribir algunos caracteres especiales y que copiar/pegar palabras con acento desde los pdfs funcione bien.
+\usepackage{textcomp} %Para usar otros caracteres especiales como: grados "°" (grados) que es diferente que "º" y euros "€".
+\usepackage{microtype} %Para expandir o comprimir el texto justificado y que se vea mejor
+\usepackage[left=25mm, top=25mm, bottom=25mm, right=25mm]{geometry} %Márgenes de la hoja
+\usepackage[section]{placeins} %evita que floats de una sección aparescan en otra
+\usepackage{pdflscape} %Para tener páginas horizontales dentro del documento
+\usepackage{appendix} %Apéncices
+\usepackage{hyperref} %Vínculos
+\usepackage{amsmath} %Fórmulas
+\usepackage{graphicx} %Imágenes
+\usepackage{subcaption} %Para colocar varias imágenes como una sola figura
+%\usepackage{tabu}
+%\usepackage{tabulary}
+%\usepackage[table]{xcolor}
+\usepackage{listings} %Escribir código
+%\usepackage{listingsutf8}
+\lstset{language=TeX} %Lenguage del código
+%\lstset{inputencoding=utf8/latin1}
+% \usepackage{gensymb} %Para escribir grados
+
+%%%%\def\input@path{{/path/to/folder}}
+
+\usepackage[space]{grffile} %Permite tener espacios en las rutas de archivos
+\graphicspath{{/Users/rafa/Dropbox/imagenes/}{C:/Users/Rafael Healy/Pictures/Imagenes/}} %Ubicación de las imágenes del documento
+%\setlength{\parindent}{1cm} %Tamaño de la sangría
+%\usepackage{setspace} %Intelineado
+	%\singlespacing
+	%\onehalfspacing
+	%\doublespacing
+	%\setstretch{1.1}
+
+%Renobrar a español
+%\renewcommand{\contentsname}{Contenido}
+%\renewcommand{\listfigurename}{Índice de figuras}
+%\renewcommand{\listtablename}{Índice de tablas}
+%\renewcommand\refname{Bibliografía}
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+
+\title{Guía rápida de \LaTeX}
+\author{Rafael Healy Chacón}
+\date{Abril 2013}
+\newpage
+\begin{document}
+\lstset{language=TeX}
+\maketitle
+
+\tableofcontents
+%\addtocontents{toc}{~\hfill\textbf{Página}\par}
+
+\clearpage 
+\section{Introducción}
+LaTeX es un sistema de composición de textos, orientado especialmente a la creación de libros, documentos científicos y técnicos que contengan fórmulas matemáticas. LaTeX está formado por un gran conjunto de macros de TeX, que es un sistema de tipografía muy popular en el ambiente académico. LaTeX se pronuncia generalmente latej o lateks.
+
+Los documentos se escriben en archivos de texto plano con exención .tex; éstos se compilan y dan como resultado un pdf con el formato deseado. Para compilar los archivos es necesario instalar una distribución de LaTeX. 
+
+Para editar los archivos TeX se puede utilizar cualquier editor de texto y compilar desde comandos en la consola, pero es más fácil utilizar un editor que integre las herramientas necesarias para desarrollar documentos con LaTeX. Esta guía se basa en el editor Texmaker, disponible para Linux, OSX y Windows.
+
+Esta guía resume algunas de las características más populares de LaTeX o relevantes para la documentación de los proyectos, pero no lo cubre por completo. Para una guía más completa se puede ver el wikilibro en: \url{http://en.wikibooks.org/wiki/LaTeX}.
+
+\section{Instalación de \LaTeX \ y Texmaker}
+\subsection{OSX}
+\begin{enumerate}
+\item Instalar la distribución MacTex de \LaTeX para OSX disponible en: \url{http://tug.org/mactex/}.
+\item Instalar Texmaker para OSX disponible en: \url{http://www.xm1math.net/texmaker/download.html}.
+\end{enumerate}
+
+\subsection{Windows}
+\begin{enumerate}
+\item Instalar la distribución MiKTeX de \LaTeX para Windows disponible en: \url{http://miktex.org/download}.
+\item Instalar Texmaker para Windows disponible en \url{http://www.xm1math.net/texmaker/download.html}.
+\end{enumerate}
+
+\section{Sintaxis}
+
+\subsection{Comandos}
+
+Los comandos distinguen entre mayúsculas y minúsculas y siguen el siguiente formato: 
+
+\begin{center}
+\lstinline!\nombredelcomando[opcion1,opcion2,...]{argumento1}{argumento2}...!
+\end{center}
+
+Empiezan con \textbackslash{} y luego el nombre del comando, pueden llevar argumentos o no. Los argumentos forzosos van entre \{~\} y los opcionales entre [~].
+
+\subsection{Entornos}
+
+Los entornos son similares a los comandos pero están diseñados para abarcar un rango más amplio en el documento.
+
+\begin{lstlisting}
+\begin{nombredelentrono}
+texto influenciado.
+\end{nombredelentrono}
+\end{lstlisting}
+
+\subsection{Grupos}
+
+Un grupo está definido por un par de \{~\}. El rango de los comandos que se coloquen en el grupo está limitado a él. Los comandos \textbackslash{}begingroup y \textbackslash{}endgroup son equivalentes. Ejemplo:
+
+\begin{lstlisting}
+{
+\bf Esto esta en negritas.
+Esto tambien.
+}
+Esto ya no.
+\end{lstlisting}
+
+\subsection{Espacios}
+
+LaTeX no toma en cuenta más de un espacio blanco consecutivo entre palabras. Ejemplo:
+
+\begin{center}
+\"{}palabra1 \ \ \ \ \ palabra2\"{} = \"{}palabra1 palabra2\"{}
+\end{center}
+
+Dejar una linea vacía equivale a un salto de párrafo. Varias lineas vacias no se toman en cuenta.
+
+\subsection{Comentarios}
+
+Los comentarios se escriben con un \% para que LaTeX ignore el resto de la linea. Ejemplo:
+
+\begin{center}
+\"{}\%esto es un comentario\"{} = \"{}\"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \
+\end{center}
+
+\section{Elementos básicos}
+
+\subsection{Documento básico}
+
+
+
+\begin{table}[!htbp]
+\subsection{Caracteres especiales}
+\vspace{12pt}
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    TeX & Resultado & TeX & Resultado \\ \hline
+    \textbackslash{}\# & \# &  &  \\ \hline
+    \textbackslash{}\$ & \$ &  &  \\ \hline
+    \textbackslash{} \% &  \% &  &  \\ \hline
+    \textbackslash{} \^{}\{\}  &  \^{}  &  &  \\ \hline
+    \textbackslash{}\&  & \& &  &  \\ \hline
+    \textbackslash{}\_ & \_ &  &  \\ \hline
+    \textbackslash{} \{ &  \{ &  &  \\ \hline
+    \textbackslash{}\}  &  \}  &  &  \\ \hline
+    \textbackslash{}\~{}\{\} & \~{} &  &  \\ \hline
+    \textbackslash{}textbackslash\{\} &  \textbackslash{} &  &  \\ \hline
+\end{tabular}
+\end{center}
+\caption{Como escribir caracteres especiales}
+\label{tab:caracteresespeciales}
+\end{table}
+\FloatBarrier
+
+\subsection{Ecuaciones}
+
+Incluir el paquete \emph{amsmath} (\lstinline$\usepackage{amsmath}$).
+
+Para escribir alguna notación matemática en linea con el texto colocarla entre \$ \$. Ejemplo: 
+
+\begin{center}
+\"{}Texto \$(x+1)(x+3)\$ Texto.\"{} = \"{}Texto $(x+1)(x+3)$ Texto.\"{}
+\end{center}
+
+Para escribir ecuaciones numeradas y etiquetadas para hacerles referencia en el texto seguir el siguiente ejemplo:
+
+\noindent\textbf{tex:}
+
+\begin{lstlisting}
+\begin{equation} 
+    x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} 
+    \label{eq:nombredeecuacion}
+\end{equation}
+
+\eqref{eq:nombredeecuacion}.
+\end{lstlisting}
+
+\noindent\textbf{pdf:}
+
+\begin{equation} 
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\label{eq:nombredeecuacion}
+\end{equation}
+
+\eqref{eq:nombredeecuacion}.
+
+\subsection{Vínculos}
+
+se debe utilizar el paquete \emph{hyperref} (\lstinline$\usepackage{hyperref}$)
+
+\textbf{Ejemplos:}
+
+\begin{center}
+\"{}\textbackslash url\{google.com\}\"{} = \"{}\url{google.com}\"{}
+
+\"{}\textbackslash href\{google.com\}\{Google\}\"{} = \"{}\href{google.com}{Google}\"{}
+\end{center}
+
+\subsection{Código fuente}
+
+Para colocar código fuente o texto que utilice muchos caracteres especiales fácilmente se puede utilizar el paquete \emph{listings}. El paquete soporta los lenguajes de programación más comunes. Para especificar el lenguaje utilizar el comando \lstinline$\lstset{language=lenguajedeseado}$ la documentación del paquete se encuentra en \url{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf}\\
+
+\noindent\textbf{Ejemplo:}
+
+\textbf{TeX:}
+\begin{lstlisting}
+\usepackage{listings}
+\lstset{language=C++}
+\begin{lstlisting}
+# include <iostream>
+int main()
+{
+    std::cout << "Hola\n";
+}
+end{lstlisting}
+\end{lstlisting}
+
+\textbf{Pdf:}
+{
+\lstset{language=C++}
+\begin{lstlisting}
+# include <iostream>
+int main()
+{
+    std::cout << "Hola\n";
+}
+\end{lstlisting}
+}
+
+Para código dentro del párrafo se puede utilizar el comando \lstinline!"\lstinline$el codigo$"!. Los signos de \$ se pueden sustituir por otro que no se encuentre en el código, e.g.~!
+
+\subsection{Listas}
+
+Para crear listas se pueden utilizar los ambientes $enumerate$ y $itemize$ para crear listas enumeradas o con viñetas respectivamente.\\
+
+\noindent\textbf{Ejemplo:}
+
+\textbf{TeX:}
+
+\begin{lstlisting}
+\begin{enumerate}
+\item perro
+\item gato
+\item rata
+    \begin{enumerate}
+    \item Jerry
+    \item Speedy
+    \end{enumerate}
+\end{enumerate}
+\end{lstlisting}
+
+\textbf{Pdf:}
+
+\begin{enumerate}
+\item perro
+\item gato
+\item rata
+	\begin{enumerate}
+	\item Jerry
+	\item Speedy
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Flotantes (floats)}
+
+Los elementos flotantes son contenedores para elementos que no se pueden dividir en 2 páginas. Principalmente se utilizan para definir tablas y figuras. Un flotante puede contener una imagen o tabla, su etiqueta para referencias en el texto y su epígrafe.
+
+Los flotantes no son parte del flujo del texto. Son elementos colocados en una parte de la página reservada para ellos. LaTeX decide en que posición colocará un flotante. El autor puede sugerir al compilador la posición deseada pero no siempre se cumple. Si se quiere forzar la posición de un flotante se puede utilizar el comando \lstinline&\FloatBarrier& incluido en el paquete \emph{placeins}.
+
+\subsubsection{Imágenes}
+
+Utilizar el paquete \emph{graphicx} (\lstinline$\usepackage{graphix}$).
+
+Para cargar la imagen se utiliza el comando \lstinline$\includegraphics{ruta/nombredelarchivo}$. El nombre del
+archivo no necesita extensión. Si hubieran 2 archivos con el mismo nombre y diferente extensión LaTeX elije el más apropiado automáticamente. 
+
+El archivo debe estar guardado en la misma carpeta que el archivo TeX o se debe especificar la ruta en el comando.\\
+
+\noindent\textbf{Ejemplo:}
+
+\textbf{Tex:}
+
+\begin{lstlisting}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ruta/oso}
+    \caption[oso]{Foto de un oso}
+    \label{fig:oso}
+\end{figure}
+
+\ref{fig:oso}
+\end{lstlisting}
+
+\begin{figure}[!ht]
+\textbf{Pdf:}
+
+    \centering
+    \includegraphics[width=0.5\textwidth]{oso}
+    \caption[oso]{Foto de un oso}
+    \label{fig:oso}
+\end{figure}
+\FloatBarrier
+
+\ref{fig:oso}
+
+\subsubsection{Tablas}
+
+Escribir y darle formato a tablas en LaTeX puede ser algo complicado. Se recomienda crear las tablas en una hoja de cálculo de OpenOffice y utilizar la extensión Calc2LaTeX para exportarla. Calc2LaTeX se puede descargar de \url{http://extensions.openoffice.org/en/project/Calc2LaTeX}.\\
+
+\noindent\textbf{Instrucciones:}
+
+\begin{enumerate}
+\item Instalar Calc2LaTeX en OpenOffice.
+\item Hacer la tabla en una hoja de cálculo y seleccionarla.
+\item Ir a Herramientas -> Macros -> Ejecutar macro...
+\item Expandir \"{}Mis macros\"{} y ejecutar el macro \"{}Main\"{} de Calc2LaTeX.
+\item (Opcional) Añadir un botón del macro a una barra de herramientas.
+\begin{enumerate}
+    \item Herramientas -> Personalizar... -> Barras de herramientas.
+    \item Seleccionar la barra a la que se quiere agregar el botón y seleccionar \"{}Agregar...\"{}
+    \item Buscar el macro \"{}Main\"{} en \"{}Macros de OpenOffice.org\"{} y seleccionar \"{}Agregar\"{},
+    \item Modificar el botón con el nombre \"{}Calc2LaTeX\"{} y poner un icono.
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Espacios en blanco}
+
+Para hacer que dos palabras espaciadas no se separen (en un salto de linea) separarlas con un un \textasciitilde. Por ejemplo, para escribir \"{}Pag.~45\"{} escribir en el archivo tex \"{}Pag.\textasciitilde 45\"{}.
+
+\section{Paquetes y comandos útiles}
+
+\subsection{Geometry}
+
+Paquete para especificar los márgenes del documento. Documentación: \url{ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/geometry/geometry.pdf}.\\
+
+\noindent\lstinline$\usepackage[left=25mm, top=25mm, bottom=25mm, right=25mm]{geometry}$
+
+\subsection{Paquetes para escribir documentos en español}
+
+\subsubsection{Babel}
+
+Re-nombra el título de elementos auto-generados (TOC, TOF, Bibliography, etc.) al español mexicano. Documentación: \url{http://css.ait.iastate.edu/Tex/Sp/babel.pdf}.\\
+
+\begin{lstlisting}
+\def\spanishoptions{mexico-com}
+\usepackage[spanish]{babel}
+\end{lstlisting}
+
+\subsubsection{Acentos}
+
+\textbf{inputenc:} Normalmente para escribir letras acentuadas en LaTeX los editores deben escribir \lstinline$"\'a"$ para producir \"{}á\"{}. Al incluir este paquete con la opción utf8 se pueden escribir normalmente en el archivo TeX.
+
+\textbf{fontenc:} Si solo se utiliza el paquete anterior, al copiar y pegar el texto en los pdfs generados, las letras acentuadas no se pegan correctamente. Este paquete soluciona esto y ademas permite escribir algunos caracteres especiales directamente en el archivo TeX.\\
+
+\begin{lstlisting}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\end{lstlisting}
+
+\subsection{placeins}
+
+Evita que los floats escritos en una sección aparescan en la siguiente. Lo que hace es re-definir el comando \textbackslash{}section para que incluya un \textbackslash{}FloatBarrier.\\
+
+\noindent\lstinline$\usepackage[section]{placeins}$
+
+\subsection{Páginas horizontales}
+
+\textbf{pdflscape:} Permite colocar páginas especificas de forma horizontal. Se puede especificar que se quiere rotar (contenido, encabezado y pie de página). Documentación: \url{ftp://ftp.ctan.org/tex-archive/macros/latex/contrib/oberdiek/pdflscape.pdf}.\\
+
+\noindent\lstinline$\usepackage{pdflscape}$
+
+\vspace{12pt}
+Para especificar la sección del documento que será horizontal se usan los comandos \lstinline$"\begin{landscape}"$ y \lstinline$"\end{landscape}"$.
+
+\section{Secciones de los documentos}
+
+\subsection{Tablas de contenido}
+
+Las tablas de contenido, figuras y tablas se generan automáticamente y se añaden con los siguientes comandos:
+
+\begin{lstlisting}
+\tableofcontents
+\listoffigures
+\listoftables
+\end{lstlisting}
+
+Cuando se utilizan estos elementos es necesario compilar el archivo 2 veces para que elementos nuevos aparezcan en las tablas. Se puede configurar el Quieck Build de Texmaker para que lo haga automáticamente.
+
+\subsection{Referencias y bibliografía}
+
+La mejor manera de administrar las fuentes bibliográficas es utilizar BibTeX. De esta manera se guardan todas las referencias bibliográficas de uno o más documentos en un solo archivo con extensión .bib. Es un archivo de texto plano en el que cada elemento bibliográfico se guarda como el siguiente ejemplo:
+
+\begin{lstlisting}
+@article{greenwade93,
+    author  = "George D. Greenwade",
+    title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
+    year    = "1993",
+    journal = "TUGBoat",
+    volume  = "14",
+    number  = "3",
+    pages   = "342--351"
+}
+\end{lstlisting}
+
+El primer campo de cada referencia es su llave, ésta debe ser única. Para hacer una cita a una referencia se utiliza el comando \lstinline$"\cite{llave}"$, el resultado es un número entre corchetes e.g.~[1].
+
+En el lugar en donde se desea colocar la bibliografía se colocan los comandos:
+
+\begin{itemize}
+\item\lstinline$"\bibliographystyle{estilo}"$: especifica el estilo a utilizar en la bibliografía (plain, acm, apasoft, chicagoa, IEEE, etc.). 
+\item\lstinline$"\bibliography{ruta}"$: inserta la bibliografía que incluye las referencias citadas en el texto. El parámetro ruta es la ruta al archivo bib en caso de que éste no se encuentre en la misma carpeta que el archivo TeX.
+\end{itemize}
+
+\subsection{Apéndices}
+
+Para colocar apéndices en un documento se puede utilizar el paquete appendix \lstinline$"\usepackage{appendix}"$. En la sección que se desea empezar a colocar los apéndices colocar el comando \lstinline$"\appendix"$. A partir de este comando el comando \lstinline$"\section{titulo}"$ creará apéndices enumerados con letras (A, B, C...).
+
+Si el documento tiene más de un apéndice posiblemente se desee ejecutar los siguientes comandos:
+
+
+\begin{itemize}
+\item\lstinline$"\noappendicestocpagenum"$: evita que el título de \"{}Apéndices\"{} en la TOC esté numerado (ver el siguiente punto).
+\item\lstinline$"\addappheadtotoc"$: Añade el título de \"{}Apéndices\"{} en la TOC (se debe colocar este comando después del anterior).
+\item\lstinline$"\appendixpage"$: Añade el título \"{}Apéndices\"{} en el documento
+\end{itemize}
+
+\subsection{Documentos por módulos}
+
+Se pueden crear documentos formados por varios archivos TeX. Esto puede ser útil en 2 sentidos, para separar (en capítulos o secciones) documentos muy largos, o para crear muchos documentos que contienen las mismas partes.
+
+Para añadir el contenido de un archivo TeX dentro de otro se usa el comando \lstinline$"\inlcude{ruta/nombredelarchivo}"$.
+
+A continuación se presenta un ejemplo para crear una portada común para varios documentos que mantiene un formato pero permite cambiar los valores de la portada mediante la declaración de comandos personales\\
+
+\noindent\textbf{portada.tex:}
+
+\begin{lstlisting}
+{\centering                  % Empieza texto centrado.
+    {\Huge \titulodocumento} % El titulo del documento 
+                             %  en letra enorme.
+    \vspace{20mm}            % Un espacio vertical de 20mm.
+    {\LARGE \autor}          % El nombre del autor en letra 
+                             %  muy grande.
+    \vspace{40mm}            % Un espacio vertical de 40mm.
+    {\Large \fecha}          % La fecha en letra grande.
+}
+\thispagestyle{empty}        % No se muestran encabezados y
+                             %  pies de pagina en esta hoja.
+\clearpage                   % Salto de pagina.
+\end{lstlisting}
+
+\noindent\textbf{documento.tex:}
+
+\begin{lstlisting}
+\documentclass[12pt, a4paper]{article}
+
+% Se definen los valores de los comandos personales
+\newcommand{\titulodocumento}{Plantilla de prueba en \LaTeX}
+\newcommand{\autor}{Rafael Healy}
+\newcommand{\fecha}{Marzo 2013}
+
+\begin{document}
+
+\input{../Comun/portada}
+
+% El resto del documento
+
+\end{document}
+\end{lstlisting}
+
+En este ejemplo se puede ver que para especificar la ruta del archivo se utilizan dos puntos seguidos para indicar un salto a la carpeta padre. Un solo punto indica que se hace referencia al directorio actual. LaTeX hace una conversión automática de \"{}/\"{} a \"{}\textbackslash{}\"{} si el sistema operativo así lo requiere.
+
+\section{Documentación colaborativa}
+
+\subsection{Repositorio Git}
+
+Se puede utilizar un sistema de control de versiones Git para sincronizar los archivos (La)tex para trabajar en la documentación de proyectos de manera colaborativa.
+
+El sistema debe ignorar los archivos auxiliares con un .gitignore que incluya las siguientes extensiones:
+
+\begin{itemize}
+\item (La)TeX: *.log *.aux *.toc
+\item Listas: *.lof *.lot
+\item Índices: *.idx *.ind *.ilg
+\item Glosarios: *.glo *.gls *.glg
+\item BibTeX: *.bbl *.blg
+\item hyperref: *.out
+\item svn-multi: *.svn *.svt *.svx
+\item standalone: *.sta *.stp
+\item latexmk tool: *.fdb\_latexmk
+\item endfloat: *.fff
+\item gzip: *.gz
+\item Otros: *.run.xml
+\end{itemize}
+
+\subsection{Estructura recomendada}
+
+Normalmente LaTeX no reconoce espacios en rutas y nombres de archivos por lo que se recomienda no usar o remplazarlos por guiones bajos (\"{}\_\"{}).
+
+\noindent\textbf{Organización de las carpetas:}
+\begin{itemize}
+\item Documentacion
+    \begin{itemize}
+    \item Docuemntos
+        \begin{itemize}
+        \item Documento1
+            \begin{itemize}
+            \item docuemnto1.tex
+            \item documento1.pdf
+            \end{itemize}
+        \item Documento2
+            \begin{itemize}
+            \item docuemnto2.tex
+            \item documento2.pdf
+            \end{itemize}
+        \end{itemize}
+    \item Comun
+        \begin{itemize}
+        \item Referencias
+            \begin{itemize}
+            \item referencias1.bib
+            \item referencias2.bib
+            \end{itemize}
+        \item Imagenes
+            \begin{itemize}
+            \item imagen1.png
+            \item imagen2.jpg
+            \end{itemize}
+        \item Secciones
+            \begin{itemize}
+            \item estilo.tex
+            \item portada.tex
+            \item encabezado.tex
+            \item pie.tex
+            \end{itemize}
+        \end{itemize}
+    
+    \end{itemize}
+\end{itemize}
+
+\subsection{Repositorio de imágenes}
+
+Para utilizar un repositorio común de imágenes entre colaboradores sincronizar las imágenes con Git o algo como Dropbox y con el comando \emph{\textbackslash graphicspath} especificar la ruta de la carpeta de imágenes de cada colaborador.
+
+\subsection{Repositorio de referencias}
+
+\end{document}
